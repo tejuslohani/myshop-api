@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: myshop-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: myshop
+      POSTGRES_USER: myshop
+      POSTGRES_PASSWORD: myshop123
+    ports:
+      - "5432:5432"
+    volumes:
+      - myshop-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  myshop-postgres-data:
